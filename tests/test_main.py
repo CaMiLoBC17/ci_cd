@@ -16,7 +16,7 @@ class TestMain(unittest.TestCase):
     def test_batch_prediction_endpoint(self):
         # Probamos que el endpoint de predicción funciona correctamente
         # Leemos el archivo CSV real desde la ruta 'data/xtest.csv'
-        with open('../data/xtest.csv', 'rb') as f:
+        with open('data/xtest.csv', 'rb') as f:
             # Hacemos la solicitud POST con el archivo CSV de test
             response = self.client.post(
                 "/batch_prediction", files={"file": ("xtest.csv", f, "text/csv")}
