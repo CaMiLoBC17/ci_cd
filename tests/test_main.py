@@ -2,6 +2,7 @@ import unittest
 from fastapi.testclient import TestClient
 from main import app  # Importamos la aplicación FastAPI
 
+
 class TestMain(unittest.TestCase):
     def setUp(self):
         # Creamos un cliente de prueba para hacer solicitudes a la API
@@ -25,6 +26,7 @@ class TestMain(unittest.TestCase):
         # Verificar que la respuesta sea exitosa
         self.assertEqual(response.status_code, 200)
         self.assertIn("predictions", response.json())
+
 
 if __name__ == "__main__":
     unittest.main()
