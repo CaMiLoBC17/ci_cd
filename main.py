@@ -11,7 +11,7 @@ async def root():
 
 @app.post("/batch_prediction")
 async def predict(file: UploadFile = File(...)):
-    model = joblib.load("tree_model.joblib")
+    model = joblib.load("model/tree_model.joblib")
 
     content = await file.read()
     data = pd.read_csv(StringIO(content.decode("utf-8")))
