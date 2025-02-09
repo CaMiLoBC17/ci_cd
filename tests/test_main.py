@@ -13,18 +13,18 @@ class TestMain(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), {"message": "The API is working successfully..."})
 
-def test_batch_prediction_endpoint(self):
-    # Probamos que el endpoint de predicción funciona correctamente
-    # Leemos el archivo CSV real desde la ruta 'data/xtest.csv'
-    with open('../data/xtest.csv', 'rb') as f:
-        # Hacemos la solicitud POST con el archivo CSV de test
-        response = self.client.post(
-            "/batch_prediction", files={"file": ("xtest.csv", f, "text/csv")}
-        )
+    def test_batch_prediction_endpoint(self):
+        # Probamos que el endpoint de predicción funciona correctamente
+        # Leemos el archivo CSV real desde la ruta 'data/xtest.csv'
+        with open('../data/xtest.csv', 'rb') as f:
+            # Hacemos la solicitud POST con el archivo CSV de test
+            response = self.client.post(
+                "/batch_prediction", files={"file": ("xtest.csv", f, "text/csv")}
+            )
 
-    # Verificar que la respuesta sea exitosa
-    self.assertEqual(response.status_code, 200)
-    self.assertIn("predictions", response.json())
+        # Verificar que la respuesta sea exitosa
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("predictions", response.json())
 
 if __name__ == "__main__":
     unittest.main()
